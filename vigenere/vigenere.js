@@ -1,7 +1,7 @@
 const readline = require("readline");
 
 // Define the Romanian alphabet with 31 letters
-const ALPHABET = "AĂÂBCDEFGHIÎJKLMNOPQRSTUVWXZ";
+const ALPHABET = "AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXZ";
 const ALPHABET_SIZE = ALPHABET.length;
 
 // Setup readline interface for user input
@@ -17,12 +17,13 @@ function preprocessText(text) {
 
 // Function to validate the key length and character range
 function validateInput(text, key) {
+  const validChars = /^[AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXZ]+$/i;
+  if (!validChars.test(text) || !validChars.test(key)) {
+    throw new Error("Only characters A-Z, a-z, Ă, Â, Î, Ș, Ț are allowed.");
+  }
+
   if (key.length < 7) {
     throw new Error("The key length must be at least 7 characters.");
-  }
-  const validChars = /[AĂÂBCDEFGHIÎJKLMNOPQRSTUVWXZ]+$/i;
-  if (!validChars.test(text) || !validChars.test(key)) {
-    throw new Error("Only characters A-Z, a-z, Ă, Â, Î are allowed.");
   }
 }
 
