@@ -17,7 +17,7 @@ function preprocessText(text) {
 
 // Function to validate the key length and character range
 function validateInput(text, key) {
-  const validChars = /^[AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXZ]+$/i;
+  const validChars = /[AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXZ]+$/i;
   if (!validChars.test(text) || !validChars.test(key)) {
     throw new Error("Only characters A-Z, a-z, Ă, Â, Î, Ș, Ț are allowed.");
   }
