@@ -1,0 +1,2 @@
+R	251209195111Z	241209195232Z	1000	unknown	/C=US/ST=State/L=City/O=Organization/CN=user1
+V	251209195145Z		1001	unknown	/C=US/ST=State/L=City/O=Organization/CN=user2

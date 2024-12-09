@@ -1,0 +1,37 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = ./pki
+certs             = ./pki/certs
+crl_dir           = ./pki/crl
+new_certs_dir     = ./pki/newcerts
+database          = ./pki/index.txt
+serial            = ./pki/serial
+private_key       = ./pki/private/ca.key
+certificate       = ./pki/ca/ca.crt
+default_md        = sha256
+policy            = policy_anything
+default_days      = 365
+x509_extensions   = usr_cert
+crlnumber         = ./pki/crlnumber
+crl               = ./pki/crl/ca.crl
+
+[ policy_anything ]
+countryName            = optional
+stateOrProvinceName    = optional
+localityName           = optional
+organizationName       = optional
+organizationalUnitName = optional
+commonName             = supplied
+emailAddress           = optional
+
+[ usr_cert ]
+basicConstraints=CA:FALSE
+nsCertType = client, email
+nsComment = "OpenSSL Generated Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth, emailProtection
+
